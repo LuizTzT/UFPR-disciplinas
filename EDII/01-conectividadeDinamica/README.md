@@ -1,3 +1,7 @@
+<p align="center">
+<img src="./imgs/path.png" width="400" height="400">
+</p>
+
 - [Aula 01 - Estudo de caso - Union-Find](https://gitlab.com/ds143-alexkutzke/material/-/blob/main/aula_01.md#aula-01-estudo-de-caso-union-find)
 
 ## Exercício proposto
