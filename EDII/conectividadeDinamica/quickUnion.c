@@ -1,6 +1,3 @@
-// Funcionando instantaneamente com as entradas tinyUF.txt e mediumUF.txt, porém com a entrada 
-// largeUF.txt extremamente lenta
-
 // nesse caso a árvore pode ficar muito alta, tornando cada vez mais custoso se mover por todos 
 // os elementos do conjunto para descobrir o elemento root
 
@@ -92,7 +89,7 @@ int main()
 
         if (!connected_UF(uf, p, q))
         {
-            // printf("%d %d\n", p, q); comentado para verificar a eficiência do código
+            printf("%d %d\n", p, q);
             union_UF(uf, p, q);
         }
 

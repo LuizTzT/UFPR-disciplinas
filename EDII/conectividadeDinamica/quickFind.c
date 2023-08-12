@@ -1,6 +1,3 @@
-// Funcionando instantaneamente com as entradas tinyUF.txt e mediumUF.txt, porém com a entrada 
-// largeUF.txt extremamente lenta
-
 // nesse caso muitas alterações podem ser necessárias na função union_UF cada vez que uma união for realizada
 
 //            1
@@ -86,7 +83,7 @@ int main()
 
         if (!connected_UF(uf, p, q))
         {
-             printf("%d %d\n", p, q);
+            printf("%d %d\n", p, q);
             union_UF(uf, p, q);
         }
 
