@@ -1,12 +1,13 @@
-# Estrutura de Dados
+# Repositório UFPR 📝
 
-Este repositório conterá implementações de diversas estruturas de dados em diferentes linguagens de programação. Cada estrutura de será armazenada em um repositório separado dentro deste repositório principal.
+Este repositório foi criado com o objetivo de centralizar e organizar materiais relacionados a diversas disciplinas do curso de Análise e desenvolvimento de sistemas - UFPR. Aqui, você encontrará uma variedade de recursos, incluindo exercícios, trabalhos, tarefas e outros materiais relevantes.
 
-## Objetivo
+## Objetivos 🎯
 
-O objetivo deste repositório é criar uma coleção de implementações de estruturas de dados para referência e aprendizado. As estruturas de dados fornecidas aqui podem ser usadas como referência ou como base para 
-projetos que requerem a utilização dessas estruturas.
+- **Centralização e Organização**: Este repositório serve como um ponto central para armazenar e acessar facilmente materiais acadêmicos de diferentes disciplinas. Isso ajuda a evitar a dispersão de informações em várias fontes.
 
-## Estruturas de Dados Disponíveis
+- **Acesso Futuro**: O conteúdo é armazenado em formato digital para que você possa acessá-lo a qualquer momento no futuro, mesmo após a conclusão da disciplina. Isso é particularmente útil para revisão, consulta e referência.
 
-Atualmente, não há nenhuma estrutura de dados disponível neste repositório.
+- **Facilitação do Aprendizado**: Ao organizar e disponibilizar diversos tipos de materiais, esperamos facilitar o seu processo de aprendizado, oferecendo uma ampla gama de recursos que podem ser úteis para diferentes etapas do seu curso.
+
+
