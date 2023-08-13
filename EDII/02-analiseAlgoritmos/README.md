@@ -13,7 +13,7 @@
 Melhor caso: (n-1) * (n-1)
 Pior caso: (n-1) * (n-1)
 
-exemplo: 
+Exemplo: 
 n == 4
 3*3 == 9 comparações.
 ```
@@ -24,10 +24,24 @@ n == 4
 
 ### selection_sort:
 ```
-Melhor caso:
+Melhor caso: (n * (n-1))/2
+Pior caso: (n * (n-1))/2
 
-Pior caso:
+Exemplo:
+n == 4
+(4 * (4-1))/2 == 6 comparações.
 ```
+Assim como no **bubble sort** tanto as comparações no **melhor** quanto no **pior** caso são semelhantes, já que não importa se o vetor está ordenado, a mesma quantidade de iterações serão realizadas.
+
+A quantidade de comparações aqui pode ser extraída por meio da formula **(n * (n-1))/2**, isso me permite calcular as comparações mais facilmente já que a cada iteração do loop externo o loop interno diminui suas iterações de forma proporcional
+
+    Exemplo:
+    n == 4
+    for externo -> 4 iterações.
+    for interno -> 4, 3, 2, 1, 0 iterações.
+
+    Isso quer dizer que a cada iteração do for externo o interno diminui uma iteração.
+
 ### insertionSort:
   ```
     Melhor caso:
@@ -43,11 +57,11 @@ Pior caso:
 
     Melhor caso -> 0 trocas.
 
-    Caso o vetor já esteja ordenado (1,2,3) não é realizada nenhuma troca, já que a comparação feita é se um elemento é maior que o seu próximo elemento.
+    Caso o vetor já esteja ordenado, por exemplo: [1, 2, 3] não é realizada nenhuma troca, já que a comparação feita é se um elemento é maior que o seu próximo elemento.
 
-    Pior caso -> (n * (n - 1)) / 2 trocas.
+    Pior caso -> (n * (n - 1)) / 2 -> trocas.
 
-    Caso o vetor esteja em ordem decrescente(3, 2, 1) será realizado a quantidade de trocas igual à: (n * (n - 1)) / 2
+    Caso o vetor esteja em ordem decrescente([3, 2, 1]) será realizado a quantidade de trocas igual à (n * (n - 1)) / 2
       Exemplo:
         n == 3
         (3 * (3 - 1)) / 2
@@ -64,11 +78,24 @@ Pior caso:
 
 ### selection_sort:
   ```
-  selection_sort:
-    
-    Melhor caso:
+  Melhor caso -> 0 trocas.
 
-    Pior caso:
+  Caso o vetor já esteja ordenado, por exemplo: [1, 2, 3] não é realizada nenhuma troca, já que a comparação feita é se um elemento é menor que o seu elemento anterior.
+
+  Pior caso:
+
+  Caso o vetor esteja em uma ordem aleatória ([3, 1, 2]) será realizado 2 trocas.
+
+  Exemplo:
+  n == 3
+
+  i == 0
+  3 1 2 -> vetor inicial.
+  1 3 2 -> j == 2 -> 1ª troca.
+
+  i == 1
+  1 3 2 -> vetor inicial.
+  1 2 3 -> j == 3 -> 2ª troca.
   ```
 ### insertionSort:
   ```
@@ -103,9 +130,17 @@ Pior caso:
 
 ### selection_sort:
   ```
-    Melhor caso:
+  Melhor caso: O(n^2)
+  Pior caso: O(n^2)
 
-    Pior caso:
+  Já que nesse algoritmo assim como no bubble sort não existe nenhum mecanismo para identificar se o vetor está ordenado, será realizada a mesma quantidade de comparações tanto no melhor quanto no pior caso.
+
+  Exemplo:
+  [1, 2, 3]
+  [3, 1, 2]
+  (n * (n-1))/2 -> 3 comparações.
+
+  Como pode ser visto, em ambos os casos serão realizadas 3 comparações, independentemente do vetor estar ordenado ou não.
   ```
 ### insertionSort:
   ```    
