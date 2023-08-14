@@ -20,7 +20,7 @@ n == 4
 
   As comparações tanto no **melhor** caso quanto no **pior** serão sempre iguais a quantidade de iterações do laço **for** interno multiplicado pelo laço **for** externo.
 
-  ---
+---
 
 ### selection_sort:
 ```
@@ -33,7 +33,7 @@ n == 4
 ```
 Assim como no **bubble sort** tanto as comparações no **melhor** quanto no **pior** caso são semelhantes, já que não importa se o vetor está ordenado, a mesma quantidade de iterações serão realizadas.
 
-A quantidade de comparações aqui pode ser extraída por meio da formula **(n * (n-1))/2**, isso me permite calcular as comparações mais facilmente já que a cada iteração do loop externo o loop interno diminui suas iterações de forma proporcional
+A quantidade de comparações aqui pode ser extraída por meio da formula **(n * (n-1))/2**. Isso me permite calcular as comparações mais facilmente já que a cada iteração do loop externo o loop interno diminui suas iterações de forma proporcional
 
     Exemplo:
     n == 4
@@ -42,12 +42,19 @@ A quantidade de comparações aqui pode ser extraída por meio da formula **(n *
 
     Isso quer dizer que a cada iteração do for externo o interno diminui uma iteração.
 
-### insertionSort:
-  ```
-    Melhor caso:
+---
 
-    Pior caso:
-  ```
+### insertionSort:
+```
+Melhor caso: Vetor já ordenado [1, 2, 3] -> n-1 comparações.
+
+Dentro do loop interno, o elemento atual está sendo comparado com os elementos anteriores no array. Isso é feito para determinar a posição correta do elemento na parte ordenada do array. Quando o vetor já está ordenado, em todas as iterações do loop interno, a comparação "atual < original[j]" resultará em "falso". Consequentemente, a comparação será executada apenas uma vez durante o loop interno para cada valor de "i" no loop externo.
+```
+```
+Pior caso: Vetor ordenado em forma decrescente -> n-1 comparações.
+
+A comparação no loop interno sempre será verdadeira até que o elemento atual alcance o início do array. Assim como no melhor caso as comparações do loop interno serão realizadas n-1 vezes.
+```
 ---
 ---
 ---
@@ -57,11 +64,11 @@ A quantidade de comparações aqui pode ser extraída por meio da formula **(n *
 
     Melhor caso -> 0 trocas.
 
-    Caso o vetor já esteja ordenado, por exemplo: [1, 2, 3] não é realizada nenhuma troca, já que a comparação feita é se um elemento é maior que o seu próximo elemento.
+    Se o array estiver previamente ordenado, como no caso de [1, 2, 3], não ocorrerá nenhuma troca, uma vez que a comparação ocorre entre elementos consecutivos para verificar se um elemento é maior do que o próximo.
 
     Pior caso -> (n * (n - 1)) / 2 -> trocas.
 
-    Caso o vetor esteja em ordem decrescente([3, 2, 1]) será realizado a quantidade de trocas igual à (n * (n - 1)) / 2
+    Caso o vetor esteja em ordem decrescente [3, 2, 1] será realizado a quantidade de trocas igual à (n * (n - 1)) / 2
       Exemplo:
         n == 3
         (3 * (3 - 1)) / 2
@@ -75,6 +82,7 @@ A quantidade de comparações aqui pode ser extraída por meio da formula **(n *
         k == 2
         2 1 3 -> vetor inicial.
         1 2 3 -> j == 0 -> 3ª troca -> vetor ordenado.
+---
 
 ### selection_sort:
   ```
@@ -97,12 +105,17 @@ A quantidade de comparações aqui pode ser extraída por meio da formula **(n *
   1 3 2 -> vetor inicial.
   1 2 3 -> j == 3 -> 2ª troca.
   ```
+---
 ### insertionSort:
-  ```
-    Melhor caso:
+```
+Melhor caso: (n - 1) trocas.
+Como nesse caso o vetor está ordenado e somente a troca dentro do loop externo será realizada, as trocas sempre serão iguais à (n - 1) iterações.
+```
 
-    Pior caso:
-  ```
+```
+Pior caso:
+Em um vetor [4, 3, 2, 1] são realizadas 9 trocas(6 loop interno, 3 loop externo), enquanto que em um vetor [3,2,1] são feitas 5 trocas(3 loop interno, 2 loop externo). As trocas dependem do tamanho do vetor e não seguem um padrão fixo, então não encontrei uma formula para expressar a quantidade de trocas.
+```
 ---
 ---
 ---
@@ -123,11 +136,10 @@ A quantidade de comparações aqui pode ser extraída por meio da formula **(n *
   O(3^2) == 9 comparações.
   
   Já que o k e o j não vão comparar o último elemento do vetor com o próximo(inexistente) a complexidade ainda se mantém O(n^2), porém ficando da seguinte forma:
-  (3-1)^2 == 4 comparações ou
-  O(2^2) == 4 comparações.
+  (3-1)^2 == 4 comparações ou O(2^2) == 4 comparações.
 
   ```
-
+---
 ### selection_sort:
   ```
   Melhor caso: O(n^2)
@@ -136,18 +148,26 @@ A quantidade de comparações aqui pode ser extraída por meio da formula **(n *
   Já que nesse algoritmo assim como no bubble sort não existe nenhum mecanismo para identificar se o vetor está ordenado, será realizada a mesma quantidade de comparações tanto no melhor quanto no pior caso.
 
   Exemplo:
-  [1, 2, 3]
-  [3, 1, 2]
+  [1, 2, 3] -> melhor
+  [3, 1, 2] -> pior
   (n * (n-1))/2 -> 3 comparações.
 
-  Como pode ser visto, em ambos os casos serão realizadas 3 comparações, independentemente do vetor estar ordenado ou não.
+  Em ambos os casos serão realizadas 3 comparações, independentemente do vetor estar ordenado ou não.
   ```
+---
 ### insertionSort:
-  ```    
-    Melhor caso:
+```    
+Melhor caso: O(n)
 
-    Pior caso:
-  ```
+Quando analisamos a complexidade no melhor caso e encontramos que são feitas "n - 1" comparações, isso resulta em uma complexidade de O(n). Não é preciso especificar "O(n - 1)" na notação, porque a notação O(n) já abrange o comportamento assintótico de crescimento linear em relação ao tamanho do input.
+```
+```
+Pior caso: O(n)
+Mesmo no pior caso, o número de comparações ainda crescerá linearmente com o tamanho da entrada, resultando em uma complexidade de O(n).
+```
+---
+---
+---
 ### Algoritmos: 
 
 #### Bubble Sort :
