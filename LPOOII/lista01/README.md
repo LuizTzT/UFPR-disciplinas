@@ -1,18 +1,33 @@
-## Getting Started
+## Lista de exercícios 1 LPOO
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+### 1. Implemente e entenda os exemplos da aula;
 
-## Folder Structure
+### 2. (Tarefa 1) Construa uma classe com três métodos estáticos:
+- a. public static double calculaAreaRetangulo(double lado1, double
+lado2)
+- b. public static double calculaAreaCircunferencia(double raio)
+- c. public static double calculaAreaTriangulo(double base, double altura).
 
-The workspace contains two folders by default, where:
+- Se qualquer método receber parâmetros negativos, deve-se levantar a exceção RuntimeException.
+- Antes da criação da classe, crie uma classe de teste unitário, com pelo menos dois testes para cada método.
+- No método main dessa classe crie uma estrutura para obter os parâmetro do
+teclado (com opção para o usuário escolher qual área quer calcular).
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+### 3. (Tarefa 2) Escreva um programa para efetuar o cálculo do salário bruto e do salário líquido de um empregado. Os dados fornecidos são:
+- O valor do salário hora
+- O número de horas trabalhadas no mês
+- O percentual de desconto do INSS
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+- Utilize exceções para validar as entradas de dados.
+- Antes da criação da classe, crie uma classe de teste unitário, com pelo menos dois testes para cada método.
+- Crie um método estático para receber os parâmetros do usuário, outro para calcular o salário bruto, outro para calcular o salário líquido e outro para imprimir o resultado na tela formatado da seguinte maneira:
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+  Extrato de salário
 
-## Dependency Management
+  Valor Hora: R$ XXX,XX
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+  Horas trabalhadas: XXX horas
+
+  Salário Bruto: R$ XXX,XX
+
+  Salário Líquido: R$ XXX,XX
