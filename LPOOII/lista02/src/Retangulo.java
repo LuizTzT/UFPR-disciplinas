@@ -6,4 +6,12 @@ public class Retangulo {
     this.lado1 = lado1;
     this.lado2 = lado2;
   }
+
+  public double area(){
+    return lado1 * lado2;
+  }
+
+  public double perimetro(){
+    return (lado1 + lado2) * 2;
+  }
 }
