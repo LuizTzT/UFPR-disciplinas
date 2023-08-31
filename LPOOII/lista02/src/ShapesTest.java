@@ -48,4 +48,19 @@ public class ShapesTest {
 
     assertEquals(areaAtual2, areaEsperada2, 0.001);
   }
+
+  @Test
+  public void testAreaTriangulo() {
+    Triangulo triangulo1 = new Triangulo(10, 20);
+    double areaEsperada1 = triangulo1.area();
+    double areaAtual1 = (10 * 20) / 2;
+
+    assertEquals(areaAtual1, areaEsperada1, 0.001);
+
+    Triangulo triangulo2 = new Triangulo(5, 10);
+    double areaEsperada2 = triangulo2.area();
+    double areaAtual2 = (5 * 10) / 2;
+
+    assertEquals(areaAtual2, areaEsperada2, 0.001);
+  }
 }
