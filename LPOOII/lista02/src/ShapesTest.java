@@ -20,7 +20,7 @@ public class ShapesTest {
   }
 
   @Test
-  public void testPerimetro() {
+  public void testPerimetroRetangulo() {
     Retangulo retangulo1 = new Retangulo(5.0, 10.0);
     double perimetroEsperado1 = retangulo1.perimetro();
     double perimetroAtual1 = (5.0 + 10.0) * 2;
