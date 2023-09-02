@@ -1,17 +1,28 @@
 public class Retangulo {
-  private double lado1;
-  private double lado2;
+  private double base;
+  private double altura;
 
-  public Retangulo(double lado1, double lado2) {
-    this.lado1 = lado1;
-    this.lado2 = lado2;
+  public Retangulo(double base, double altura) {
+    Validation.validarParametros(base, "A base do retângulo informada é negativa!");
+    Validation.validarParametros(altura, "A altura do retângulo informada é negativa!");
+    this.base = base;
+    this.altura = altura;
   }
 
   public double area(){
-    return lado1 * lado2;
+    return base * altura;
   }
 
   public double perimetro(){
-    return (lado1 + lado2) * 2;
+    return (base + altura) * 2;
   }
+
+  public double getBase() {
+    return base;
+  }
+
+  public double getAltura() {
+    return altura;
+  }
+  
 }
