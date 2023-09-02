@@ -1,3 +1,4 @@
+package tarefa03;
 public class Triangulo {
   private double base;
   private double altura;
