@@ -38,8 +38,6 @@ public class Shapes {
     sc.close();
   }
 
-  public static final double PI = 3.14159;
-
   private static void verificaParametrosNegativos(double... valores) {
     for (double valor : valores) {
       if (valor < 0) {
@@ -55,7 +53,7 @@ public class Shapes {
 
   public static double calculaAreaCircunferencia(double raio) {
     verificaParametrosNegativos(raio);
-    return 2 * PI * raio;
+    return Math.PI * Math.pow(raio, 2);
   }
 
   public static double calculaAreaTriangulo(double base, double altura) {
