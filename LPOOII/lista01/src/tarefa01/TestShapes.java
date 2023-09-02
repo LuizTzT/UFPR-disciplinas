@@ -1,4 +1,5 @@
 package tarefa01;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 
@@ -27,12 +28,14 @@ public class TestShapes {
 
   @Test
   public void testCircunferencia1() {
-    assertEquals(31.4159, Shapes.calculaAreaCircunferencia(5), 0.001);
+    double areaEsperada = Math.PI * Math.pow(5, 2);
+    assertEquals(areaEsperada, Shapes.calculaAreaCircunferencia(5), 0.001);
   }
 
   @Test
   public void testCircunferencia2() {
-    assertEquals(37.6990, Shapes.calculaAreaCircunferencia(6), 0.001);
+    double areaEsperada = Math.PI * Math.pow(10, 2);
+    assertEquals(areaEsperada, Shapes.calculaAreaCircunferencia(10), 0.001);
   }
 
   @Test
@@ -54,10 +57,10 @@ public class TestShapes {
     assertEquals(150, Shapes.calculaAreaTriangulo(15, 20), 0.001);
   }
 
-      @Test
+  @Test
   public void testTriangulo3() {
     RuntimeException exception = assertThrows(RuntimeException.class, () -> {
-      Shapes.calculaAreaTriangulo(15,-20);
+      Shapes.calculaAreaTriangulo(15, -20);
     });
 
     assertEquals("Parâmetros não podem ser negativos!", exception.getMessage());
