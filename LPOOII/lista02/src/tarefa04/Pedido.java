@@ -9,6 +9,7 @@ public class Pedido {
   private double valorTotalPermitido;
   List<ItemDePedido> itens = new ArrayList<>();
 
+
   public Pedido(String nomeCliente, double valorTotalPermitido) {
     this.nomeCliente = nomeCliente;
     this.valorTotalPermitido = valorTotalPermitido;
@@ -84,14 +85,16 @@ public class Pedido {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
+    sb.append("------------------------------").append("\n");
     sb.append("Nome do Cliente: ").append(nomeCliente).append("\n");
-    sb.append("Total do pedido: R$%.2f").append(getTotal()).append("\n");
+    sb.append("Total do pedido: R$").append(getTotal()).append("\n");
     sb.append("Item\t\t|Preço\n");
 
     for (ItemDePedido item : itens) {
       sb.append(item.getNome()).append("\t\t R$").append(item.getPreco()).append("\n");
     }
 
+    sb.append("------------------------------").append("\n");
     return sb.toString();
   }
 
