@@ -6,48 +6,70 @@ import java.util.Scanner;
 
 public class SistemaPedidos {
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
     List<Pedido> pedidos = new ArrayList<>();
+    Scanner sc = new Scanner(System.in);
+    boolean teste = true;
+    while (teste) {
 
-    System.out.println("Informe qual ação deseja realizar: ");
-    System.out.println("1 - Incluir Pedido.");
-    System.out.println("2 - Excluir pedido por nome do cliente.");
-    System.out.println("3 - Listar Pedidos.");
-    System.out.println("4 - Incluir Item de Pedido em Pedido.");
-    System.out.println("5 - Excluir item de Pedido em Pedido.");
-    System.out.println("6 - Imprimir a lista de Pedidos.");
-    int op = sc.nextInt();
+      System.out.println("Informe qual ação deseja realizar: ");
+      System.out.println("1 - Incluir Pedido.");
+      System.out.println("2 - Excluir pedido por nome do cliente.");
+      System.out.println("3 - Listar Pedidos.");
+      System.out.println("4 - Incluir Item de Pedido em Pedido.");
+      System.out.println("5 - Excluir item de Pedido em Pedido.");
+      System.out.println("6 - Imprimir a lista de Pedidos.");
+      System.out.println("0 - Encerrar.");
+      int op = sc.nextInt();
 
-    switch (op) {
-      case 1:
-        break;
-      case 2:
-        break;
-      case 3:
-        break;
-      case 4:
-        break;
-      case 5:
-        break;
-      case 6:
-        break;
+      switch (op) {
+        case 0:
+          teste = false;
+          break;
+        case 1:
+          System.out.print("Informe o nome do cliente: ");
+          sc.nextLine();
+          String nome = sc.nextLine();
+
+          System.out.print("Informe a quantia total do cliente: ");
+          double creditos = sc.nextDouble();
+
+          incluirPedido(nome, creditos, pedidos);
+          break;
+        case 2:
+          System.out.println("Informe o nome do Cliente que deseja excluir o pedido: ");
+          sc.nextLine();
+          nome = sc.nextLine();
+
+          excluirPedido(nome, pedidos);
+          break;
+        case 3:
+          listarPedidos(pedidos);
+          break;
+        case 4:
+          System.out.println("");
+          break;
+        case 5:
+          break;
+        case 6:
+          break;
+      }
+
     }
-
     sc.close();
   }
 
-  public void incluirPedido(String nomeCliente, double valorTotalPermitido, List<Pedido> pedidos) {
+  public static void incluirPedido(String nomeCliente, double valorTotalPermitido, List<Pedido> pedidos) {
     pedidos.add(new Pedido(nomeCliente, valorTotalPermitido));
   }
 
-
-  public void excluirPedido(String nomeCliente, List<Pedido> pedidos) {
+  public static void excluirPedido(String nomeCliente, List<Pedido> pedidos) {
     boolean itemEncontrado = false;
 
     try {
       for (Pedido item : pedidos) {
         if (item.getCliente().equals(nomeCliente)) {
           pedidos.remove(item);
+          System.out.printf("Pedido do cliente %s excluido com sucesso.\n", nomeCliente);
           itemEncontrado = true;
           return;
         }
@@ -61,9 +83,20 @@ public class SistemaPedidos {
     }
   }
 
-  public void listarPedidos(List<Pedido> pedidos){
-    for (Pedido item : pedidos){
+  public static void listarPedidos(List<Pedido> pedidos) {
+    for (Pedido item : pedidos) {
       System.out.println(item);
     }
   }
+
+  public static void incluirItemDePedido(String nomeCliente, ItemDePedido item, List<Pedido> pedidos) {
+    for (Pedido pedido : pedidos) {
+      if (pedido.getCliente().equals(nomeCliente)) {
+        pedido.acrescentaItem(item);
+        return;
+      }
+    }
+    System.out.println("Cliente não encontrado.");
+  }
+
 }
