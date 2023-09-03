@@ -41,4 +41,24 @@ public class SistemaPedidos {
   }
 
 
+  public void excluirPedido(String nomeCliente, List<Pedido> pedidos) {
+    boolean itemEncontrado = false;
+
+    try {
+      for (Pedido item : pedidos) {
+        if (item.getCliente().equals(nomeCliente)) {
+          pedidos.remove(item);
+          itemEncontrado = true;
+          return;
+        }
+      }
+
+      if (!itemEncontrado) {
+        throw new ItemExceptions("Nenhum pedido no nome desse cliente foi encontrado.");
+      }
+    } catch (Exception e) {
+      System.out.println(e.getMessage());
+    }
+  }
+
 }
