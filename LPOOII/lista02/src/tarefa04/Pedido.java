@@ -36,7 +36,7 @@ public class Pedido {
 
       if (item == null) {
         throw new ItemExceptions("Item nulo.");
-      } else if (getTotal() > valorTotalPermitido) {
+      } else if (getTotal() > valorTotalPermitido || item.getPreco() * item.getQuantidade() > getTotal()) {
         throw new ItemExceptions("Item de Pedido não incluído. Valor de pedido excedido.");
       } else if (valorTotalPermitido == 0) {
         throw new ItemExceptions("Cliente não tem nenhum crédito");
