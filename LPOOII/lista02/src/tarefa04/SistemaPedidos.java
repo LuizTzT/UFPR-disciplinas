@@ -61,4 +61,9 @@ public class SistemaPedidos {
     }
   }
 
+  public void listarPedidos(List<Pedido> pedidos){
+    for (Pedido item : pedidos){
+      System.out.println(item);
+    }
+  }
 }
