@@ -18,5 +18,17 @@ public class Pedido {
     return nomeCliente;
   }
 
+  public List<ItemDePedido> getItens() {
+    return itens;
+  }
 
+  public double getTotal() {
+    double somaTotal = 0.0;
+    for (ItemDePedido item : itens) {
+      somaTotal += item.getPreco() * item.getQuantidade();
+    }
+    return somaTotal;
+  }
+
+ 
 }
