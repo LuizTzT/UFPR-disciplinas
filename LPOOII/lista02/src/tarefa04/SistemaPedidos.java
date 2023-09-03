@@ -36,7 +36,7 @@ public class SistemaPedidos {
           incluirPedido(nome, creditos, pedidos);
           break;
         case 2:
-          System.out.println("Informe o nome do Cliente que deseja excluir o pedido: ");
+          System.out.print("Informe o nome do Cliente que deseja excluir o pedido: ");
           sc.nextLine();
           nome = sc.nextLine();
 
@@ -46,7 +46,21 @@ public class SistemaPedidos {
           listarPedidos(pedidos);
           break;
         case 4:
-          System.out.println("");
+          System.out.print("Informe o nome do cliente: ");
+          sc.nextLine();
+          String nomeCliente = sc.nextLine();
+
+          System.out.print("Qual item deseja adicionar: ");
+          String nomeItem = sc.nextLine();
+
+          System.out.print("Qual o valor desse item: ");
+          double preco = sc.nextDouble();
+
+          System.out.println("Qual a quantidade que será adicionada: ");
+          int quantidade = sc.nextInt();
+
+          ItemDePedido item = new ItemDePedido(nomeItem, preco, quantidade);
+          incluirItemDePedido(nomeCliente, item, pedidos);
           break;
         case 5:
           break;
