@@ -36,6 +36,9 @@ public class SistemaPedidos {
     sc.close();
   }
 
+  public void incluirPedido(String nomeCliente, double valorTotalPermitido, List<Pedido> pedidos) {
+    pedidos.add(new Pedido(nomeCliente, valorTotalPermitido));
+  }
 
 
 }
