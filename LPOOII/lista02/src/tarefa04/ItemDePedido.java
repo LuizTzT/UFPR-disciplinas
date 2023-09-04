@@ -11,6 +11,11 @@ public class ItemDePedido {
     this.quantidade = quantidade;
   }
 
+  public ItemDePedido(String nome, int quantidade) {
+    this.nome = nome;
+    this.quantidade = quantidade;
+  }
+
   public String getNome() {
     return nome;
   }
