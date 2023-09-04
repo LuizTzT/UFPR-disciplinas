@@ -89,11 +89,11 @@ public class Pedido {
     StringBuilder sb = new StringBuilder();
     sb.append("------------------------------").append("\n");
     sb.append("Nome do Cliente: ").append(nomeCliente).append("\n");
-    sb.append("Total do pedido: R$").append(getTotal()).append("\n");
+    sb.append(String.format("Total do pedido: R$%.2f", getTotal())).append("\n");
     sb.append(String.format("%-20s | %s", "Item", "Preço")).append("\n");
 
     for (ItemDePedido item : itens) {
-      sb.append(String.format("%-20s", item.getNome())).append(" | R$").append(item.getPreco()).append("\n");
+      sb.append(String.format("%-20s", item.getNome())).append(" | R$").append(String.format("%.2f",item.getPreco())).append("\n");
     }
 
     sb.append("------------------------------").append("\n");
