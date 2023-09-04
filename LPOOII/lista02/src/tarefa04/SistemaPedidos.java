@@ -28,27 +28,31 @@ public class SistemaPedidos {
         case 1:
           System.out.print("Informe o nome do cliente: ");
           sc.nextLine();
-          String nome = sc.nextLine();
+          String nomeCliente = sc.nextLine();
 
           System.out.print("Informe a quantia total do cliente: ");
           double creditos = sc.nextDouble();
 
-          incluirPedido(nome, creditos, pedidos);
+          incluirPedido(nomeCliente, creditos, pedidos);
           break;
         case 2:
           System.out.print("Informe o nome do Cliente que deseja excluir o pedido: ");
           sc.nextLine();
-          nome = sc.nextLine();
+          nomeCliente = sc.nextLine();
 
-          excluirPedido(nome, pedidos);
+          excluirPedido(nomeCliente, pedidos);
           break;
         case 3:
-          listarPedidos(pedidos);
+          System.out.print("Informe o nome do Cliente que deseja listar os pedidos: ");
+          sc.nextLine();
+          nomeCliente = sc.nextLine();
+
+          listarPedidos(nomeCliente, pedidos);
           break;
         case 4:
           System.out.print("Informe o nome do cliente: ");
           sc.nextLine();
-          String nomeCliente = sc.nextLine();
+          nomeCliente = sc.nextLine();
 
           System.out.print("Qual item deseja adicionar: ");
           String nomeItem = sc.nextLine();
@@ -56,7 +60,7 @@ public class SistemaPedidos {
           System.out.print("Qual o valor desse item: ");
           double preco = sc.nextDouble();
 
-          System.out.println("Qual a quantidade que será adicionada: ");
+          System.out.print("Qual a quantidade que será adicionada: ");
           int quantidade = sc.nextInt();
 
           ItemDePedido item = new ItemDePedido(nomeItem, preco, quantidade);
@@ -97,10 +101,16 @@ public class SistemaPedidos {
     }
   }
 
-  public static void listarPedidos(List<Pedido> pedidos) {
-    for (Pedido item : pedidos) {
-      System.out.println(item);
+  public static void listarPedidos(String nomeCliente, List<Pedido> pedidos) {
+
+    for (Pedido pedido : pedidos) {
+      if (pedido.getCliente().equals(nomeCliente)) {
+        System.out.println(pedido);
+        return;
+      }
+
     }
+    System.out.println("Cliente não localizado");
   }
 
   public static void incluirItemDePedido(String nomeCliente, ItemDePedido item, List<Pedido> pedidos) {
@@ -113,4 +123,7 @@ public class SistemaPedidos {
     System.out.println("Cliente não encontrado.");
   }
 
+  // for (Pedido item : pedidos) {
+  // System.out.println(item);
+  // }
 }
