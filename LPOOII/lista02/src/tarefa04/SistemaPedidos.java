@@ -67,6 +67,18 @@ public class SistemaPedidos {
           incluirItemDePedido(nomeCliente, item, pedidos);
           break;
         case 5:
+          System.out.print("Informe o nome do cliente: ");
+          sc.nextLine();
+          nomeCliente = sc.nextLine();
+
+          System.out.print("Qual item deseja remover: ");
+          nomeItem = sc.nextLine();
+
+          System.out.print("Qual a quantidade que será removida: ");
+          quantidade = sc.nextInt();
+
+          item = new ItemDePedido(nomeItem, quantidade);
+          excluirItemDePedido(nomeCliente, item, pedidos);
           break;
         case 6:
           break;
@@ -117,6 +129,16 @@ public class SistemaPedidos {
     for (Pedido pedido : pedidos) {
       if (pedido.getCliente().equals(nomeCliente)) {
         pedido.acrescentaItem(item);
+        return;
+      }
+    }
+    System.out.println("Cliente não encontrado.");
+  }
+
+  public static void excluirItemDePedido(String nomeCliente, ItemDePedido item, List<Pedido> pedidos) {
+    for (Pedido pedido : pedidos) {
+      if (pedido.getCliente().equals(nomeCliente)) {
+        pedido.retiraItem(item);
         return;
       }
     }
