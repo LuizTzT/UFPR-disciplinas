@@ -9,7 +9,6 @@ public class Pedido {
   private double valorTotalPermitido;
   List<ItemDePedido> itens = new ArrayList<>();
 
-
   public Pedido(String nomeCliente, double valorTotalPermitido) {
     this.nomeCliente = nomeCliente;
     this.valorTotalPermitido = valorTotalPermitido;
@@ -36,7 +35,7 @@ public class Pedido {
 
       if (item == null) {
         throw new ItemExceptions("Item nulo.");
-      } else if (getTotal() > valorTotalPermitido || item.getPreco() * item.getQuantidade() > getTotal()) {
+      } else if (getTotal() > valorTotalPermitido || item.getPreco() * item.getQuantidade() > valorTotalPermitido) {
         throw new ItemExceptions("Item de Pedido não incluído. Valor de pedido excedido.");
       } else if (valorTotalPermitido == 0) {
         throw new ItemExceptions("Cliente não tem nenhum crédito");
@@ -47,7 +46,7 @@ public class Pedido {
           if (itemLista.getNome().equals(item.getNome())) {
             itemEncontrado = true;
             itemLista.setQuantidade(itemLista.getQuantidade() + item.getQuantidade());
-            return; // coloquei depois
+            return;
           }
         }
 
@@ -88,10 +87,10 @@ public class Pedido {
     sb.append("------------------------------").append("\n");
     sb.append("Nome do Cliente: ").append(nomeCliente).append("\n");
     sb.append("Total do pedido: R$").append(getTotal()).append("\n");
-    sb.append("Item\t\t|Preço\n");
+    sb.append(String.format("%-20s | %s", "Item", "Preço")).append("\n");
 
     for (ItemDePedido item : itens) {
-      sb.append(item.getNome()).append("\t\t R$").append(item.getPreco()).append("\n");
+      sb.append(String.format("%-20s", item.getNome())).append(" | R$").append(item.getPreco()).append("\n");
     }
 
     sb.append("------------------------------").append("\n");
