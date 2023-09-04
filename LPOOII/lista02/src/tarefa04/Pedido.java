@@ -60,15 +60,18 @@ public class Pedido {
     }
   }
 
-  public void retiraItem(String nome) {
+  public void retiraItem(ItemDePedido item) {
     boolean itemEncontrado = false;
 
     try {
-
-      for (ItemDePedido item : itens) {
-        if (item.getNome().equals(nome)) {
-          itens.remove(item);
+      for (ItemDePedido itemLista : itens) {
+        if (itemLista.getNome().equals(item.getNome())) {
           itemEncontrado = true;
+          if (itemLista.getQuantidade() == 1) {
+            itens.remove(itemLista);
+          } else {
+            itemLista.setQuantidade(itemLista.getQuantidade() - item.getQuantidade());
+          }
           break;
         }
       }
