@@ -11,15 +11,7 @@ public class SistemaPedidos {
     boolean teste = true;
     while (teste) {
 
-      System.out.println("Informe qual ação deseja realizar: ");
-      System.out.println("1 - Incluir Pedido.");
-      System.out.println("2 - Excluir pedido por nome do cliente.");
-      System.out.println("3 - Listar Pedidos.");
-      System.out.println("4 - Incluir Item de Pedido em Pedido.");
-      System.out.println("5 - Excluir item de Pedido em Pedido.");
-      System.out.println("6 - Imprimir a lista de Pedidos.");
-      System.out.println("0 - Encerrar.");
-      int op = sc.nextInt();
+      int op = menu(sc);
 
       switch (op) {
         case 0:
@@ -81,6 +73,7 @@ public class SistemaPedidos {
           excluirItemDePedido(nomeCliente, item, pedidos);
           break;
         case 6:
+          imprimirListaDePedidos(pedidos);
           break;
       }
 
@@ -145,7 +138,22 @@ public class SistemaPedidos {
     System.out.println("Cliente não encontrado.");
   }
 
-  // for (Pedido item : pedidos) {
-  // System.out.println(item);
-  // }
+  public static void imprimirListaDePedidos(List<Pedido> pedidos) {
+    for (Pedido item : pedidos) {
+      System.out.println(item);
+    }
+  }
+
+  public static int menu(Scanner sc) {
+    System.out.println("Informe qual ação deseja realizar: ");
+    System.out.println("1 - Incluir Pedido.");
+    System.out.println("2 - Excluir pedido por nome do cliente.");
+    System.out.println("3 - Listar Pedidos.");
+    System.out.println("4 - Incluir Item de Pedido em Pedido.");
+    System.out.println("5 - Excluir item de Pedido em Pedido.");
+    System.out.println("6 - Imprimir a lista de Pedidos.");
+    System.out.println("0 - Encerrar.");
+    int op = sc.nextInt();
+    return op;
+  }
 }
