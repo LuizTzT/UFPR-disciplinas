@@ -1,4 +1,4 @@
-package autorlivro;
+package autorlivro.entidade;
 
 import java.util.HashSet;
 import java.util.Set;
