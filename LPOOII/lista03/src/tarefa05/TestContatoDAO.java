@@ -1,16 +1,44 @@
 package tarefa05;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNull;
 
 import java.sql.SQLException;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
 
 import org.junit.Test;
 
 public class TestContatoDAO {
+
+  @Test
+  public void testAlteraContato() throws SQLException{
+    Contato contatoOriginal = new Contato();
+    Contato contatoAlterado = new Contato();
+    ContatoListDAO listDao = new ContatoListDAO();
+    long id = 14;
+
+    contatoOriginal = listDao.findContato(id);
+
+    contatoAlterado.setId(id);
+    contatoAlterado.setNome("Joana Pereira");
+    contatoAlterado.setEmail("jojope@gmail.com");
+    contatoAlterado.setEndereco("R. dos santos 666");
+
+    Calendar dataNascimento = Calendar.getInstance();
+    dataNascimento.set(Calendar.YEAR, 1930);
+    dataNascimento.set(Calendar.MONTH, Calendar.OCTOBER);
+    dataNascimento.set(Calendar.DAY_OF_MONTH, 13);
+
+    contatoAlterado.setDataNascimento(dataNascimento);
+
+    listDao.altera(contatoAlterado);
+
+    assertNotEquals(contatoOriginal.getNome(), contatoAlterado.getNome());
+    assertNotEquals(contatoOriginal.getEmail(), contatoAlterado.getEmail());
+    assertNotEquals(contatoOriginal.getEndereco(), contatoAlterado.getEndereco());
+    assertNotEquals(contatoOriginal.getDataNascimento(), contatoAlterado.getDataNascimento());
+  }
 
   @Test
   public void testRemoveContato() throws SQLException {
