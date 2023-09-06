@@ -14,6 +14,7 @@ public class ContatoListDAO {
   private String sqlRemove = "DELETE FROM contatos WHERE id = ?";
   private String sqlList = "SELECT * FROM contatos";
   private String sqlInsere = "INSERT INTO contatos (id, nome, email, endereco, dataNascimento) VALUES(?,?,?,?,?)";
+  private String sqlProcura = "SELECT * FROM contatos WHERE id = ?";
 
   // public void altera(Contato contato)
   public void altera(Contato contato) throws SQLException {
@@ -144,4 +145,50 @@ public class ContatoListDAO {
       }
     }
   }
+
+  public Contato findContato(long id) throws SQLException {
+    Connection connection = null;
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+
+    try {
+      connection = new ConnectionFactoryDatabase().getConnection();
+      pstmt = connection.prepareStatement(sqlProcura);
+
+      pstmt.setLong(1, id);
+
+      rs = pstmt.executeQuery();
+
+      if (rs.next()) {
+        Contato contato = new Contato();
+
+        contato.setId(rs.getLong("id"));
+        contato.setNome(rs.getString("nome"));
+        contato.setEmail(rs.getString("email"));
+        contato.setEndereco(rs.getString("endereco"));
+
+        // Converter o tipo Date em Calendar
+        Date sqlDate = rs.getDate("dataNascimento");
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(sqlDate.getTime());
+
+        contato.setDataNascimento(calendar);
+
+        return contato;
+      } else {
+        return null;
+      }
+
+    } catch (SQLException e) {
+      throw new RuntimeException(e);
+    } finally {
+      if (pstmt != null) {
+        pstmt.close();
+      }
+      if (connection != null) {
+        connection.close();
+      }
+    }
+  }
+
 }
