@@ -1,6 +1,7 @@
 package tarefa05;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import java.sql.SQLException;
 import java.util.Calendar;
@@ -11,6 +12,23 @@ import org.junit.Test;
 
 public class TestContatoDAO {
 
+  @Test
+  public void testRemoveContato() throws SQLException {
+    Contato contatoInicial = new Contato();
+    Contato contatoFinal = new Contato();
+
+    ContatoListDAO listDao = new ContatoListDAO();
+
+    long id = 15;
+    contatoInicial = listDao.findContato(id);
+
+    listDao.remove(contatoInicial);
+
+    contatoFinal = listDao.findContato(id);
+
+    assertNull(contatoFinal);
+
+  }
 
   @Test
   public void testInserirContato() throws SQLException {
