@@ -62,12 +62,33 @@ public class App {
 
         // Listar
 
-        List<Contato> listaContatos= listDao.list();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY");
-        for(Contato c: listaContatos){
-            String dataNascimentoFormatada = dateFormat.format(c.getDataNascimento().getTime());
+        // List<Contato> listaContatos= listDao.list();
+        // SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY");
+        // for(Contato c: listaContatos){
+        // String dataNascimentoFormatada =
+        // dateFormat.format(c.getDataNascimento().getTime());
 
-            System.out.printf("%d %s %s %s %s \n",c.getId(), c.getNome(), c.getEmail(), c.getEndereco(), dataNascimentoFormatada);
-        }
+        // System.out.printf("%d %s %s %s %s \n",c.getId(), c.getNome(), c.getEmail(),
+        // c.getEndereco(), dataNascimentoFormatada);
+        // }
+
+        // ============================================================================
+
+        // Inserir
+        contato.setId((long) 12);
+        contato.setNome("Antonio Roberto");
+        contato.setEmail("beto15@gmail.com");
+        contato.setEndereco("Av. das armas n. 400");
+
+        Calendar dataNascimento = Calendar.getInstance();
+        dataNascimento.set(Calendar.YEAR, 1980);
+        dataNascimento.set(Calendar.MONTH, Calendar.MARCH);
+        dataNascimento.set(Calendar.DAY_OF_MONTH, 21);
+
+        contato.setDataNascimento(dataNascimento);
+
+        listDao.insere(contato);
+
+        System.out.printf("Id: %d, Nome: %s, Inserido!", contato.getId(), contato.getNome());
     }
 }
