@@ -9,7 +9,7 @@ import java.util.Properties;
 
 public class ConnectionDatabase {
   public Connection getConnection() {
-    try (InputStream input = getClass().getResourceAsStream("/biblioteca.properties")) {
+    try (InputStream input = getClass().getResourceAsStream("../../resources/biblioteca.properties")) {
       if (input == null) {
         throw new RuntimeException("Não foi possível localizar o arquivo biblioteca.properties");
       }
