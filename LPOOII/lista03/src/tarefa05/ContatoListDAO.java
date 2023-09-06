@@ -69,7 +69,51 @@ public class ContatoListDAO {
   }
 
   // public List<Contato> lista()
-  
+  public List<Contato> list() throws SQLException {
+    Connection connection = null;
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+    List<Contato> contatos = new ArrayList<>();
+
+    try {
+      connection = new ConnectionFactoryDatabase().getConnection();
+      pstmt = connection.prepareStatement(sqlList);
+      rs = pstmt.executeQuery();
+
+      while (rs.next()) {
+        Contato contato = new Contato();
+
+        contato.setId(rs.getLong("id"));
+        contato.setNome(rs.getString("nome"));
+        contato.setEmail(rs.getString("email"));
+        contato.setEndereco(rs.getString("endereco"));
+
+        // Converter o tipo Date em Calendar
+        Date sqlDate = rs.getDate("dataNascimento");
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(sqlDate.getTime());
+
+        contato.setDataNascimento(calendar);
+
+        contatos.add(contato);
+      }
+
+      return contatos;
+
+    } catch (SQLException e) {
+      throw new RuntimeException(e);
+    } finally {
+      if (connection != null) {
+        connection.close();
+      }
+      if (pstmt != null) {
+        pstmt.close();
+      }
+      if (rs != null) {
+        rs.close();
+      }
+    }
+  }
 
   // public void insere(Contato contato)
 }
