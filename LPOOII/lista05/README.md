@@ -61,12 +61,29 @@ public class Outer {
 
 - Implemente e explique o seu funcionamento. Explique porque não ocorre erro de compilação na linha 16, uma vez que estamos acessando diretamente um membro privado da classe Outer.
 
+      Em resumo esse código cria uma classe Outer com os seguintes itens:
+      Um atributo x privado, um método main e outro método chamado print, além de uma classe Inner(classe aninhada).
+
+      main:
+        - criação de uma instância de Outer(o) e outra de Inner(i).
+        - chamada do método print na instância de Outer(o).
+      
+      Outer print():
+        - impressão do valor de x.
+
+      Inner print():
+        - incremento do valor de x.
+        - impressao do valor de x após incremento.
+
+      Não ocorre erro de compilação porque Inner é uma classe interna, ou seja, implementada dentro da classe Outer que criou o atributo privado x. Uma classe interna tem acesso a todos os atributos e métodos da classe à qual ela foi implementada
+      
+
+
 ---
 
 #### (Tarefa 10) Faça uma classe executável que dado a distância percorrida (em Km) e o tempo gasto em uma viagem (em horas):
 
-- Informe a velocidade média do carro, sabendo que Velocidade = &Delta;S / &Delta;T (variação de distância / variação do tempo).
-- Imprima o valor com duas casas decimais. Utilize a classe BigDecimal. 
+- Informe a velocidade média do carro, sabendo que Velocidade = &Delta;S / &Delta;T (variação de distância / variação do tempo). Imprima o valor com duas casas decimais. Utilize a classe BigDecimal. 
 - Os valores de entrada devem ser obtidos do teclado e convertidos para double e depois para BigDecimal. Todos os
 cálculos devem ser feitos com BigDecimal. 
 - Faça com que todos os números nos cálculos
